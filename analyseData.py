@@ -37,15 +37,10 @@ def getZonePrice():
     print(maxPrice,minPrice,avePrice)
     #  绘制多柱状图
     n_groups = len(gamezone.keys())
-    # means_men = (20, 35, 30, 35, 27)
-    # std_men = (2, 3, 4, 1, 2)
-    # means_women = (25, 32, 34, 20, 25)
-    # std_women = (3, 5, 2, 3, 3)
     fig, ax = plt.subplots()
     index = np.arange(n_groups)
     bar_width = 0.35
     opacity = 0.4
-    # error_config = {'ecolor': '0.3'}
     rects1 = plt.bar(index, tuple(maxPrice.values()), bar_width,
                      alpha=opacity,
                      color='b',
@@ -61,6 +56,7 @@ def getZonePrice():
     plt.xlabel('游戏区')
     plt.ylabel('价格')
     plt.title('出售价格分析')
+    #决定了x轴每个单位中心刻度的位置
     plt.xticks(index + 2*bar_width / 2, tuple(gamezone.values()))
     plt.legend()
     plt.tight_layout()
